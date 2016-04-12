@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14EF12821C0BE4470039BDDA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 14EF12601C0BE4470039BDDA /* LICENSE */; };
+		14EF12831C0BE4470039BDDA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12621C0BE4470039BDDA /* MBProgressHUD.m */; };
+		14EF12841C0BE4470039BDDA /* README.mdown in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12631C0BE4470039BDDA /* README.mdown */; };
+		14EF12951C0BE4880039BDDA /* MBProgressHUDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12941C0BE4880039BDDA /* MBProgressHUDUtil.m */; };
+		14EF12C51C0BE59B0039BDDA /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF129B1C0BE59B0039BDDA /* MJRefreshAutoFooter.m */; };
+		14EF12C61C0BE59B0039BDDA /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF129D1C0BE59B0039BDDA /* MJRefreshBackFooter.m */; };
+		14EF12C71C0BE59B0039BDDA /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF129F1C0BE59B0039BDDA /* MJRefreshComponent.m */; };
+		14EF12C81C0BE59B0039BDDA /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12A11C0BE59B0039BDDA /* MJRefreshFooter.m */; };
+		14EF12C91C0BE59B0039BDDA /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12A31C0BE59B0039BDDA /* MJRefreshHeader.m */; };
+		14EF12CA1C0BE59B0039BDDA /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12A81C0BE59B0039BDDA /* MJRefreshAutoGifFooter.m */; };
+		14EF12CB1C0BE59B0039BDDA /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12AA1C0BE59B0039BDDA /* MJRefreshAutoNormalFooter.m */; };
+		14EF12CC1C0BE59B0039BDDA /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12AC1C0BE59B0039BDDA /* MJRefreshAutoStateFooter.m */; };
+		14EF12CD1C0BE59B0039BDDA /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12AF1C0BE59B0039BDDA /* MJRefreshBackGifFooter.m */; };
+		14EF12CE1C0BE59B0039BDDA /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12B11C0BE59B0039BDDA /* MJRefreshBackNormalFooter.m */; };
+		14EF12CF1C0BE59B0039BDDA /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12B31C0BE59B0039BDDA /* MJRefreshBackStateFooter.m */; };
+		14EF12D01C0BE59B0039BDDA /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12B61C0BE59B0039BDDA /* MJRefreshGifHeader.m */; };
+		14EF12D11C0BE59B0039BDDA /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12B81C0BE59B0039BDDA /* MJRefreshNormalHeader.m */; };
+		14EF12D21C0BE59B0039BDDA /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12BA1C0BE59B0039BDDA /* MJRefreshStateHeader.m */; };
+		14EF12D31C0BE59B0039BDDA /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14EF12BB1C0BE59B0039BDDA /* MJRefresh.bundle */; };
+		14EF12D41C0BE59B0039BDDA /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12BE1C0BE59B0039BDDA /* MJRefreshConst.m */; };
+		14EF12D51C0BE59B0039BDDA /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12C01C0BE59B0039BDDA /* UIScrollView+MJExtension.m */; };
+		14EF12D61C0BE59B0039BDDA /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12C21C0BE59B0039BDDA /* UIScrollView+MJRefresh.m */; };
+		14EF12D71C0BE59B0039BDDA /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EF12C41C0BE59B0039BDDA /* UIView+MJExtension.m */; };
+		14EF13801C0BF1310039BDDA /* crc.c in Sources */ = {isa = PBXBuildFile; fileRef = 14EF125C1C0BDFA40039BDDA /* crc.c */; };
+		1707340C1C5473BD00F7A30F /* CBPeripheral+Equals.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707340B1C5473BD00F7A30F /* CBPeripheral+Equals.m */; };
+		1707340F1C547BC700F7A30F /* MBProgressHUD+TapGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707340E1C547BC700F7A30F /* MBProgressHUD+TapGesture.m */; };
+		173CDA5C1C0AD00700CC6E15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDA5B1C0AD00700CC6E15 /* main.m */; };
+		173CDA5F1C0AD00700CC6E15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDA5E1C0AD00700CC6E15 /* AppDelegate.m */; };
+		173CDA651C0AD00700CC6E15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173CDA631C0AD00700CC6E15 /* Main.storyboard */; };
+		173CDA671C0AD00700CC6E15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173CDA661C0AD00700CC6E15 /* Assets.xcassets */; };
+		173CDA6A1C0AD00700CC6E15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173CDA681C0AD00700CC6E15 /* LaunchScreen.storyboard */; };
+		173CDA751C0AD00700CC6E15 /* BluetoothLockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDA741C0AD00700CC6E15 /* BluetoothLockTests.m */; };
+		173CDA801C0AD00700CC6E15 /* BluetoothLockUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDA7F1C0AD00700CC6E15 /* BluetoothLockUITests.m */; };
+		173CDA9E1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDA9D1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m */; };
+		173CDAE71C0B0BBE00CC6E15 /* BluetoothDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDAE61C0B0BBE00CC6E15 /* BluetoothDataVC.m */; };
+		17BDD7551C54DE0000E50225 /* openState.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 17BDD7531C54DE0000E50225 /* openState.jpeg */; };
+		17BDD7561C54DE0000E50225 /* closeState.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 17BDD7541C54DE0000E50225 /* closeState.jpeg */; };
+		17E7BAD61C5C9994004D6C94 /* PeripheralsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDA8E1C0AD1AF00CC6E15 /* PeripheralsVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		173CDA711C0AD00700CC6E15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 173CDA4F1C0AD00700CC6E15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 173CDA561C0AD00700CC6E15;
+			remoteInfo = BluetoothLock;
+		};
+		173CDA7C1C0AD00700CC6E15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 173CDA4F1C0AD00700CC6E15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 173CDA561C0AD00700CC6E15;
+			remoteInfo = BluetoothLock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14EF125C1C0BDFA40039BDDA /* crc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc.c; sourceTree = "<group>"; };
+		14EF125D1C0BDFA40039BDDA /* crc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc.h; sourceTree = "<group>"; };
+		14EF12601C0BE4470039BDDA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		14EF12611C0BE4470039BDDA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		14EF12621C0BE4470039BDDA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		14EF12631C0BE4470039BDDA /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
+		14EF12931C0BE4880039BDDA /* MBProgressHUDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDUtil.h; sourceTree = "<group>"; };
+		14EF12941C0BE4880039BDDA /* MBProgressHUDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDUtil.m; sourceTree = "<group>"; };
+		14EF129A1C0BE59B0039BDDA /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
+		14EF129B1C0BE59B0039BDDA /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
+		14EF129C1C0BE59B0039BDDA /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
+		14EF129D1C0BE59B0039BDDA /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackFooter.m; sourceTree = "<group>"; };
+		14EF129E1C0BE59B0039BDDA /* MJRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshComponent.h; sourceTree = "<group>"; };
+		14EF129F1C0BE59B0039BDDA /* MJRefreshComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshComponent.m; sourceTree = "<group>"; };
+		14EF12A01C0BE59B0039BDDA /* MJRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooter.h; sourceTree = "<group>"; };
+		14EF12A11C0BE59B0039BDDA /* MJRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooter.m; sourceTree = "<group>"; };
+		14EF12A21C0BE59B0039BDDA /* MJRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeader.h; sourceTree = "<group>"; };
+		14EF12A31C0BE59B0039BDDA /* MJRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeader.m; sourceTree = "<group>"; };
+		14EF12A71C0BE59B0039BDDA /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
+		14EF12A81C0BE59B0039BDDA /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
+		14EF12A91C0BE59B0039BDDA /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
+		14EF12AA1C0BE59B0039BDDA /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
+		14EF12AB1C0BE59B0039BDDA /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
+		14EF12AC1C0BE59B0039BDDA /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
+		14EF12AE1C0BE59B0039BDDA /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
+		14EF12AF1C0BE59B0039BDDA /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
+		14EF12B01C0BE59B0039BDDA /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
+		14EF12B11C0BE59B0039BDDA /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
+		14EF12B21C0BE59B0039BDDA /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
+		14EF12B31C0BE59B0039BDDA /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
+		14EF12B51C0BE59B0039BDDA /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshGifHeader.h; sourceTree = "<group>"; };
+		14EF12B61C0BE59B0039BDDA /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshGifHeader.m; sourceTree = "<group>"; };
+		14EF12B71C0BE59B0039BDDA /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshNormalHeader.h; sourceTree = "<group>"; };
+		14EF12B81C0BE59B0039BDDA /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshNormalHeader.m; sourceTree = "<group>"; };
+		14EF12B91C0BE59B0039BDDA /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshStateHeader.h; sourceTree = "<group>"; };
+		14EF12BA1C0BE59B0039BDDA /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshStateHeader.m; sourceTree = "<group>"; };
+		14EF12BB1C0BE59B0039BDDA /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		14EF12BC1C0BE59B0039BDDA /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		14EF12BD1C0BE59B0039BDDA /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		14EF12BE1C0BE59B0039BDDA /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		14EF12BF1C0BE59B0039BDDA /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		14EF12C01C0BE59B0039BDDA /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		14EF12C11C0BE59B0039BDDA /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		14EF12C21C0BE59B0039BDDA /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		14EF12C31C0BE59B0039BDDA /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
+		14EF12C41C0BE59B0039BDDA /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		1707340A1C5473BD00F7A30F /* CBPeripheral+Equals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBPeripheral+Equals.h"; sourceTree = "<group>"; };
+		1707340B1C5473BD00F7A30F /* CBPeripheral+Equals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBPeripheral+Equals.m"; sourceTree = "<group>"; };
+		1707340D1C547BC700F7A30F /* MBProgressHUD+TapGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TapGesture.h"; sourceTree = "<group>"; };
+		1707340E1C547BC700F7A30F /* MBProgressHUD+TapGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TapGesture.m"; sourceTree = "<group>"; };
+		173CDA571C0AD00700CC6E15 /* BluetoothLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		173CDA5B1C0AD00700CC6E15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		173CDA5D1C0AD00700CC6E15 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		173CDA5E1C0AD00700CC6E15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		173CDA641C0AD00700CC6E15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		173CDA661C0AD00700CC6E15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		173CDA691C0AD00700CC6E15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		173CDA6B1C0AD00700CC6E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		173CDA701C0AD00700CC6E15 /* BluetoothLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluetoothLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		173CDA741C0AD00700CC6E15 /* BluetoothLockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BluetoothLockTests.m; sourceTree = "<group>"; };
+		173CDA761C0AD00700CC6E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		173CDA7B1C0AD00700CC6E15 /* BluetoothLockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluetoothLockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		173CDA7F1C0AD00700CC6E15 /* BluetoothLockUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BluetoothLockUITests.m; sourceTree = "<group>"; };
+		173CDA811C0AD00700CC6E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		173CDA8D1C0AD1AF00CC6E15 /* PeripheralsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralsVC.h; sourceTree = "<group>"; };
+		173CDA8E1C0AD1AF00CC6E15 /* PeripheralsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralsVC.m; sourceTree = "<group>"; };
+		173CDA901C0AD7D500CC6E15 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		173CDA9C1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBPeripheral+RSSI.h"; sourceTree = "<group>"; };
+		173CDA9D1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBPeripheral+RSSI.m"; sourceTree = "<group>"; };
+		173CDAE51C0B0BBE00CC6E15 /* BluetoothDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothDataVC.h; sourceTree = "<group>"; };
+		173CDAE61C0B0BBE00CC6E15 /* BluetoothDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothDataVC.m; sourceTree = "<group>"; };
+		17BDD7531C54DE0000E50225 /* openState.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = openState.jpeg; sourceTree = "<group>"; };
+		17BDD7541C54DE0000E50225 /* closeState.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = closeState.jpeg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		173CDA541C0AD00700CC6E15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173CDA6D1C0AD00700CC6E15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173CDA781C0AD00700CC6E15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14EF125F1C0BE4470039BDDA /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				14EF12601C0BE4470039BDDA /* LICENSE */,
+				14EF12931C0BE4880039BDDA /* MBProgressHUDUtil.h */,
+				14EF12941C0BE4880039BDDA /* MBProgressHUDUtil.m */,
+				14EF12611C0BE4470039BDDA /* MBProgressHUD.h */,
+				14EF12621C0BE4470039BDDA /* MBProgressHUD.m */,
+				14EF12631C0BE4470039BDDA /* README.mdown */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		14EF12981C0BE59B0039BDDA /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				14EF12991C0BE59B0039BDDA /* Base */,
+				14EF12A41C0BE59B0039BDDA /* Custom */,
+				14EF12BB1C0BE59B0039BDDA /* MJRefresh.bundle */,
+				14EF12BC1C0BE59B0039BDDA /* MJRefresh.h */,
+				14EF12BD1C0BE59B0039BDDA /* MJRefreshConst.h */,
+				14EF12BE1C0BE59B0039BDDA /* MJRefreshConst.m */,
+				14EF12BF1C0BE59B0039BDDA /* UIScrollView+MJExtension.h */,
+				14EF12C01C0BE59B0039BDDA /* UIScrollView+MJExtension.m */,
+				14EF12C11C0BE59B0039BDDA /* UIScrollView+MJRefresh.h */,
+				14EF12C21C0BE59B0039BDDA /* UIScrollView+MJRefresh.m */,
+				14EF12C31C0BE59B0039BDDA /* UIView+MJExtension.h */,
+				14EF12C41C0BE59B0039BDDA /* UIView+MJExtension.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		14EF12991C0BE59B0039BDDA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				14EF129A1C0BE59B0039BDDA /* MJRefreshAutoFooter.h */,
+				14EF129B1C0BE59B0039BDDA /* MJRefreshAutoFooter.m */,
+				14EF129C1C0BE59B0039BDDA /* MJRefreshBackFooter.h */,
+				14EF129D1C0BE59B0039BDDA /* MJRefreshBackFooter.m */,
+				14EF129E1C0BE59B0039BDDA /* MJRefreshComponent.h */,
+				14EF129F1C0BE59B0039BDDA /* MJRefreshComponent.m */,
+				14EF12A01C0BE59B0039BDDA /* MJRefreshFooter.h */,
+				14EF12A11C0BE59B0039BDDA /* MJRefreshFooter.m */,
+				14EF12A21C0BE59B0039BDDA /* MJRefreshHeader.h */,
+				14EF12A31C0BE59B0039BDDA /* MJRefreshHeader.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		14EF12A41C0BE59B0039BDDA /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				14EF12A51C0BE59B0039BDDA /* Footer */,
+				14EF12B41C0BE59B0039BDDA /* Header */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		14EF12A51C0BE59B0039BDDA /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				14EF12A61C0BE59B0039BDDA /* Auto */,
+				14EF12AD1C0BE59B0039BDDA /* Back */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		14EF12A61C0BE59B0039BDDA /* Auto */ = {
+			isa = PBXGroup;
+			children = (
+				14EF12A71C0BE59B0039BDDA /* MJRefreshAutoGifFooter.h */,
+				14EF12A81C0BE59B0039BDDA /* MJRefreshAutoGifFooter.m */,
+				14EF12A91C0BE59B0039BDDA /* MJRefreshAutoNormalFooter.h */,
+				14EF12AA1C0BE59B0039BDDA /* MJRefreshAutoNormalFooter.m */,
+				14EF12AB1C0BE59B0039BDDA /* MJRefreshAutoStateFooter.h */,
+				14EF12AC1C0BE59B0039BDDA /* MJRefreshAutoStateFooter.m */,
+			);
+			path = Auto;
+			sourceTree = "<group>";
+		};
+		14EF12AD1C0BE59B0039BDDA /* Back */ = {
+			isa = PBXGroup;
+			children = (
+				14EF12AE1C0BE59B0039BDDA /* MJRefreshBackGifFooter.h */,
+				14EF12AF1C0BE59B0039BDDA /* MJRefreshBackGifFooter.m */,
+				14EF12B01C0BE59B0039BDDA /* MJRefreshBackNormalFooter.h */,
+				14EF12B11C0BE59B0039BDDA /* MJRefreshBackNormalFooter.m */,
+				14EF12B21C0BE59B0039BDDA /* MJRefreshBackStateFooter.h */,
+				14EF12B31C0BE59B0039BDDA /* MJRefreshBackStateFooter.m */,
+			);
+			path = Back;
+			sourceTree = "<group>";
+		};
+		14EF12B41C0BE59B0039BDDA /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				14EF12B51C0BE59B0039BDDA /* MJRefreshGifHeader.h */,
+				14EF12B61C0BE59B0039BDDA /* MJRefreshGifHeader.m */,
+				14EF12B71C0BE59B0039BDDA /* MJRefreshNormalHeader.h */,
+				14EF12B81C0BE59B0039BDDA /* MJRefreshNormalHeader.m */,
+				14EF12B91C0BE59B0039BDDA /* MJRefreshStateHeader.h */,
+				14EF12BA1C0BE59B0039BDDA /* MJRefreshStateHeader.m */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		173CDA4E1C0AD00700CC6E15 = {
+			isa = PBXGroup;
+			children = (
+				173CDA591C0AD00700CC6E15 /* BluetoothLock */,
+				173CDA731C0AD00700CC6E15 /* BluetoothLockTests */,
+				173CDA7E1C0AD00700CC6E15 /* BluetoothLockUITests */,
+				173CDA581C0AD00700CC6E15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		173CDA581C0AD00700CC6E15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				173CDA571C0AD00700CC6E15 /* BluetoothLock.app */,
+				173CDA701C0AD00700CC6E15 /* BluetoothLockTests.xctest */,
+				173CDA7B1C0AD00700CC6E15 /* BluetoothLockUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		173CDA591C0AD00700CC6E15 /* BluetoothLock */ = {
+			isa = PBXGroup;
+			children = (
+				14EF125C1C0BDFA40039BDDA /* crc.c */,
+				14EF125D1C0BDFA40039BDDA /* crc.h */,
+				173CDA5D1C0AD00700CC6E15 /* AppDelegate.h */,
+				173CDA5E1C0AD00700CC6E15 /* AppDelegate.m */,
+				1707340A1C5473BD00F7A30F /* CBPeripheral+Equals.h */,
+				1707340B1C5473BD00F7A30F /* CBPeripheral+Equals.m */,
+				173CDA8D1C0AD1AF00CC6E15 /* PeripheralsVC.h */,
+				173CDA8E1C0AD1AF00CC6E15 /* PeripheralsVC.m */,
+				173CDAE51C0B0BBE00CC6E15 /* BluetoothDataVC.h */,
+				173CDAE61C0B0BBE00CC6E15 /* BluetoothDataVC.m */,
+				173CDA631C0AD00700CC6E15 /* Main.storyboard */,
+				173CDA661C0AD00700CC6E15 /* Assets.xcassets */,
+				173CDA681C0AD00700CC6E15 /* LaunchScreen.storyboard */,
+				173CDA6B1C0AD00700CC6E15 /* Info.plist */,
+				173CDA5A1C0AD00700CC6E15 /* Supporting Files */,
+				173CDA9C1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.h */,
+				173CDA9D1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m */,
+				1707340D1C547BC700F7A30F /* MBProgressHUD+TapGesture.h */,
+				1707340E1C547BC700F7A30F /* MBProgressHUD+TapGesture.m */,
+			);
+			path = BluetoothLock;
+			sourceTree = "<group>";
+		};
+		173CDA5A1C0AD00700CC6E15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17BDD7531C54DE0000E50225 /* openState.jpeg */,
+				17BDD7541C54DE0000E50225 /* closeState.jpeg */,
+				14EF12981C0BE59B0039BDDA /* MJRefresh */,
+				14EF125F1C0BE4470039BDDA /* MBProgressHUD */,
+				173CDA5B1C0AD00700CC6E15 /* main.m */,
+				173CDA901C0AD7D500CC6E15 /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		173CDA731C0AD00700CC6E15 /* BluetoothLockTests */ = {
+			isa = PBXGroup;
+			children = (
+				173CDA741C0AD00700CC6E15 /* BluetoothLockTests.m */,
+				173CDA761C0AD00700CC6E15 /* Info.plist */,
+			);
+			path = BluetoothLockTests;
+			sourceTree = "<group>";
+		};
+		173CDA7E1C0AD00700CC6E15 /* BluetoothLockUITests */ = {
+			isa = PBXGroup;
+			children = (
+				173CDA7F1C0AD00700CC6E15 /* BluetoothLockUITests.m */,
+				173CDA811C0AD00700CC6E15 /* Info.plist */,
+			);
+			path = BluetoothLockUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		173CDA561C0AD00700CC6E15 /* BluetoothLock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173CDA841C0AD00700CC6E15 /* Build configuration list for PBXNativeTarget "BluetoothLock" */;
+			buildPhases = (
+				173CDA531C0AD00700CC6E15 /* Sources */,
+				173CDA541C0AD00700CC6E15 /* Frameworks */,
+				173CDA551C0AD00700CC6E15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BluetoothLock;
+			productName = BluetoothLock;
+			productReference = 173CDA571C0AD00700CC6E15 /* BluetoothLock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		173CDA6F1C0AD00700CC6E15 /* BluetoothLockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173CDA871C0AD00700CC6E15 /* Build configuration list for PBXNativeTarget "BluetoothLockTests" */;
+			buildPhases = (
+				173CDA6C1C0AD00700CC6E15 /* Sources */,
+				173CDA6D1C0AD00700CC6E15 /* Frameworks */,
+				173CDA6E1C0AD00700CC6E15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				173CDA721C0AD00700CC6E15 /* PBXTargetDependency */,
+			);
+			name = BluetoothLockTests;
+			productName = BluetoothLockTests;
+			productReference = 173CDA701C0AD00700CC6E15 /* BluetoothLockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		173CDA7A1C0AD00700CC6E15 /* BluetoothLockUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173CDA8A1C0AD00700CC6E15 /* Build configuration list for PBXNativeTarget "BluetoothLockUITests" */;
+			buildPhases = (
+				173CDA771C0AD00700CC6E15 /* Sources */,
+				173CDA781C0AD00700CC6E15 /* Frameworks */,
+				173CDA791C0AD00700CC6E15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				173CDA7D1C0AD00700CC6E15 /* PBXTargetDependency */,
+			);
+			name = BluetoothLockUITests;
+			productName = BluetoothLockUITests;
+			productReference = 173CDA7B1C0AD00700CC6E15 /* BluetoothLockUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		173CDA4F1C0AD00700CC6E15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = qianyb;
+				TargetAttributes = {
+					173CDA561C0AD00700CC6E15 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					173CDA6F1C0AD00700CC6E15 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 173CDA561C0AD00700CC6E15;
+					};
+					173CDA7A1C0AD00700CC6E15 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 173CDA561C0AD00700CC6E15;
+					};
+				};
+			};
+			buildConfigurationList = 173CDA521C0AD00700CC6E15 /* Build configuration list for PBXProject "BluetoothLock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 173CDA4E1C0AD00700CC6E15;
+			productRefGroup = 173CDA581C0AD00700CC6E15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				173CDA561C0AD00700CC6E15 /* BluetoothLock */,
+				173CDA6F1C0AD00700CC6E15 /* BluetoothLockTests */,
+				173CDA7A1C0AD00700CC6E15 /* BluetoothLockUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		173CDA551C0AD00700CC6E15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17BDD7561C54DE0000E50225 /* closeState.jpeg in Resources */,
+				173CDA6A1C0AD00700CC6E15 /* LaunchScreen.storyboard in Resources */,
+				173CDA671C0AD00700CC6E15 /* Assets.xcassets in Resources */,
+				17BDD7551C54DE0000E50225 /* openState.jpeg in Resources */,
+				14EF12821C0BE4470039BDDA /* LICENSE in Resources */,
+				14EF12D31C0BE59B0039BDDA /* MJRefresh.bundle in Resources */,
+				173CDA651C0AD00700CC6E15 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173CDA6E1C0AD00700CC6E15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173CDA791C0AD00700CC6E15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		173CDA531C0AD00700CC6E15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17E7BAD61C5C9994004D6C94 /* PeripheralsVC.m in Sources */,
+				14EF13801C0BF1310039BDDA /* crc.c in Sources */,
+				1707340F1C547BC700F7A30F /* MBProgressHUD+TapGesture.m in Sources */,
+				14EF12D51C0BE59B0039BDDA /* UIScrollView+MJExtension.m in Sources */,
+				14EF12D41C0BE59B0039BDDA /* MJRefreshConst.m in Sources */,
+				14EF12CA1C0BE59B0039BDDA /* MJRefreshAutoGifFooter.m in Sources */,
+				14EF12D61C0BE59B0039BDDA /* UIScrollView+MJRefresh.m in Sources */,
+				14EF12C61C0BE59B0039BDDA /* MJRefreshBackFooter.m in Sources */,
+				14EF12D01C0BE59B0039BDDA /* MJRefreshGifHeader.m in Sources */,
+				14EF12CD1C0BE59B0039BDDA /* MJRefreshBackGifFooter.m in Sources */,
+				14EF12D21C0BE59B0039BDDA /* MJRefreshStateHeader.m in Sources */,
+				173CDA9E1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m in Sources */,
+				14EF12CB1C0BE59B0039BDDA /* MJRefreshAutoNormalFooter.m in Sources */,
+				14EF12C71C0BE59B0039BDDA /* MJRefreshComponent.m in Sources */,
+				173CDAE71C0B0BBE00CC6E15 /* BluetoothDataVC.m in Sources */,
+				14EF12831C0BE4470039BDDA /* MBProgressHUD.m in Sources */,
+				14EF12D71C0BE59B0039BDDA /* UIView+MJExtension.m in Sources */,
+				173CDA5F1C0AD00700CC6E15 /* AppDelegate.m in Sources */,
+				14EF12CF1C0BE59B0039BDDA /* MJRefreshBackStateFooter.m in Sources */,
+				14EF12951C0BE4880039BDDA /* MBProgressHUDUtil.m in Sources */,
+				1707340C1C5473BD00F7A30F /* CBPeripheral+Equals.m in Sources */,
+				173CDA5C1C0AD00700CC6E15 /* main.m in Sources */,
+				14EF12C91C0BE59B0039BDDA /* MJRefreshHeader.m in Sources */,
+				14EF12CE1C0BE59B0039BDDA /* MJRefreshBackNormalFooter.m in Sources */,
+				14EF12D11C0BE59B0039BDDA /* MJRefreshNormalHeader.m in Sources */,
+				14EF12CC1C0BE59B0039BDDA /* MJRefreshAutoStateFooter.m in Sources */,
+				14EF12C51C0BE59B0039BDDA /* MJRefreshAutoFooter.m in Sources */,
+				14EF12841C0BE4470039BDDA /* README.mdown in Sources */,
+				14EF12C81C0BE59B0039BDDA /* MJRefreshFooter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173CDA6C1C0AD00700CC6E15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173CDA751C0AD00700CC6E15 /* BluetoothLockTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173CDA771C0AD00700CC6E15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173CDA801C0AD00700CC6E15 /* BluetoothLockUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		173CDA721C0AD00700CC6E15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 173CDA561C0AD00700CC6E15 /* BluetoothLock */;
+			targetProxy = 173CDA711C0AD00700CC6E15 /* PBXContainerItemProxy */;
+		};
+		173CDA7D1C0AD00700CC6E15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 173CDA561C0AD00700CC6E15 /* BluetoothLock */;
+			targetProxy = 173CDA7C1C0AD00700CC6E15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		173CDA631C0AD00700CC6E15 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				173CDA641C0AD00700CC6E15 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		173CDA681C0AD00700CC6E15 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				173CDA691C0AD00700CC6E15 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		173CDA821C0AD00700CC6E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		173CDA831C0AD00700CC6E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		173CDA851C0AD00700CC6E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiao Dong Yang (UR6F5JBML6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiao Dong Yang (UR6F5JBML6)";
+				ENABLE_BITCODE = NO;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREFIX_HEADER = BluetoothLock/PrefixHeader.pch;
+				INFOPLIST_FILE = BluetoothLock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vic.ios.develop.bluetooth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d34f16eb-884f-41d0-8e12-02b9fcc027f0";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		173CDA861C0AD00700CC6E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiao Dong Yang (UR6F5JBML6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiao Dong Yang (UR6F5JBML6)";
+				ENABLE_BITCODE = NO;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREFIX_HEADER = BluetoothLock/PrefixHeader.pch;
+				INFOPLIST_FILE = BluetoothLock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vic.ios.develop.bluetooth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d34f16eb-884f-41d0-8e12-02b9fcc027f0";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		173CDA881C0AD00700CC6E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BluetoothLockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = qyb.BluetoothLockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluetoothLock.app/BluetoothLock";
+			};
+			name = Debug;
+		};
+		173CDA891C0AD00700CC6E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BluetoothLockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = qyb.BluetoothLockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluetoothLock.app/BluetoothLock";
+			};
+			name = Release;
+		};
+		173CDA8B1C0AD00700CC6E15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BluetoothLockUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = qyb.BluetoothLockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BluetoothLock;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		173CDA8C1C0AD00700CC6E15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BluetoothLockUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = qyb.BluetoothLockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BluetoothLock;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		173CDA521C0AD00700CC6E15 /* Build configuration list for PBXProject "BluetoothLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173CDA821C0AD00700CC6E15 /* Debug */,
+				173CDA831C0AD00700CC6E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173CDA841C0AD00700CC6E15 /* Build configuration list for PBXNativeTarget "BluetoothLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173CDA851C0AD00700CC6E15 /* Debug */,
+				173CDA861C0AD00700CC6E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173CDA871C0AD00700CC6E15 /* Build configuration list for PBXNativeTarget "BluetoothLockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173CDA881C0AD00700CC6E15 /* Debug */,
+				173CDA891C0AD00700CC6E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173CDA8A1C0AD00700CC6E15 /* Build configuration list for PBXNativeTarget "BluetoothLockUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173CDA8B1C0AD00700CC6E15 /* Debug */,
+				173CDA8C1C0AD00700CC6E15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 173CDA4F1C0AD00700CC6E15 /* Project object */;
+}

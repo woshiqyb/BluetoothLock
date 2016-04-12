@@ -1,0 +1,112 @@
+//
+//  PrefixHeader.pch
+//  BluetoothLock
+//
+//  Created by qianyb on 15/11/29.
+//  Copyright © 2015年 qianyb. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#ifdef DEBUG
+#define debugLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define debugLog(...)
+#define debugMethod()
+#endif
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import "MBProgressHUD.h"
+#import "MBProgressHUDUtil.h"
+#import "MBProgressHUD+TapGesture.h"
+#import "CBPeripheral+RSSI.h"
+#endif
+
+#define EMPTY_STRING        @""
+
+#define PATH_OF_APP_HOME    NSHomeDirectory()
+#define PATH_OF_TEMP        NSTemporaryDirectory()
+#define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
+/*
+ *  System Versioning Preprocessor Macros
+ */
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+/**
+ *  大于等于7.0的ios版本
+ */
+#define iOS7_OR_LATER SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")
+
+/**
+ *  大于等于8.0的ios版本
+ */
+#define iOS8_OR_LATER SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")
+/*
+ Usage sample:
+ 
+ if (SYSTEM_VERSION_LESS_THAN(@"4.0")) {
+ ...
+ }
+ 
+ if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"3.1.1")) {
+ ...
+ }
+ 
+ */
+
+#define SerialDataService_UUID @"FFE0"
+#define SerialDataCharacteristics_UUID @"FFE4"
+
+#define BluetoothDataService_UUID @"FFE5"
+#define BluetoothDataCharacteristics_UUID @"FFE9"
+
+#define Main_SB_VC(identifier) [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:identifier]
+
+#define SB_VC(storyboard,identifier) [[UIStoryboard storyboardWithName:storyboard bundle:nil] instantiateViewControllerWithIdentifier:identifier]
+
+#define NibWithName(str) [UINib nibWithNibName:str bundle:nil]
+
+#define User_D [NSUserDefaults standardUserDefaults]
+
+#define Screen_Bounds [[UIScreen mainScreen] bounds]
+
+#define Screen_Width CGRectGetWidth(Screen_Bounds)
+
+#define Screen_Height CGRectGetHeight(Screen_Bounds)
+
+/**
+ *  字体颜色
+ */
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+/**
+ *  字符串去空格；若字符串为nil，则返回空字符串
+ */
+#define TrimString(str) (str?[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]:@"")
+/**
+ *  字符串去空格，若字符串为nil或者去空格后为空字符串，则返回default值（default不传，默认为暂无）
+ */
+#define StringWithDefault(str,default) (TrimString(str).length > 0?TrimString(str):(default?:@"暂无"))
+/**
+ *  显示和隐藏提示信息
+ */
+#define showManualHideHud(info,model) {UIWindow *window = [MBProgressHUDUtil sharedWindow];MBProgressHUD *hud = [MBProgressHUDUtil sharedHUD];hud.alpha = 1.0;dispatch_async(dispatch_get_main_queue(), ^{hud.labelText = nil;hud.detailsLabelText = nil;hud.mode = model;hud.detailsLabelText = info;[window addSubview:hud];});}
+
+#define hideManualHud(second) {MBProgressHUD *hud = [MBProgressHUDUtil sharedHUD];dispatch_async(dispatch_get_main_queue(), ^{[hud hide:YES afterDelay:second];});}
+
+#define showErrorHud(info) {MBProgressHUD *temp = [MBProgressHUD showHUDAddedTo:self.view animated:YES];temp.mode = MBProgressHUDModeText;temp.detailsLabelText = [NSString stringWithFormat:@"%@",info];[temp hide:YES afterDelay:1.0f];}
+
+#define showSuccessHud(info) {MBProgressHUD *temp = [MBProgressHUD showHUDAddedTo:self.view animated:YES];temp.mode = MBProgressHUDModeText;temp.detailsLabelText = [NSString stringWithFormat:@"%@",info];[temp hide:YES afterDelay:1.0f];}
+
+#endif /* PrefixHeader_pch */
