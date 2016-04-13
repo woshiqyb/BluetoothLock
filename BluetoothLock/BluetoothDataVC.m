@@ -245,10 +245,11 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
         NSData *data = characteristic.value;
         
         NSString *dataString = [NSString stringWithFormat:@"%@",data];
+        _operationStateLabel.text = dataString;
         
         Byte *byteAll = (Byte *)[data bytes];
         
-        Byte deviceState = byteAll[5];
+        Byte deviceState = byteAll[4];
         
 //        NSString *hintText;
 //        
