@@ -116,7 +116,7 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     return [NSMutableData dataWithBytes:byte length:11];
 }
 
-- (NSData *)openningData{
+- (NSData *)closingData{
     unsigned int deviceID = (unsigned int)[deviceIDHexString intValue];
     
     Byte byte[11];
@@ -152,7 +152,7 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     return data;
 }
 
-- (NSData *)closingData{
+- (NSData *)openningData{
     unsigned int deviceID = (unsigned int)[deviceIDHexString intValue];
     
     Byte byte[11];
@@ -183,9 +183,6 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
 }
 
 #pragma mark - UIButton Action
-/**
- *  关闭设备按钮下达的是0x01，就是打开蓝牙锁，锁住车锁的意思
- */
 - (IBAction)openThePeripheral {
     [self.view endEditing:YES];
     
@@ -196,9 +193,6 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     }
 }
 
-/**
- *  打开设备按钮下达的是0x02(打开指令)，就是关闭蓝牙锁，打开车锁的意思
- */
 - (IBAction)closeThePeripheral {
     if (bluetoothCharacteristic) {
         operationType = BluetoothOperationTypeClose;
@@ -221,12 +215,17 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error{
     if (error) {
         showErrorHud(@"未发现特征");
-    }else if ([service isEqual:_serialService]){
+    }
+    
+    if ([service isEqual:_serialService]){
         serialCharacteristic = [[service.characteristics filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.UUID.UUIDString == %@",SerialDataCharacteristics_UUID]] firstObject];
-        //数据串口通道连接以后去获取设备状态
-        [_peripheral setNotifyValue:YES forCharacteristic:serialCharacteristic];
-        
-    }else if ([service isEqual:_bluetoothService]){
+        if (serialCharacteristic) {
+            //数据串口通道连接以后去获取设备状态
+            [_peripheral setNotifyValue:YES forCharacteristic:serialCharacteristic];
+        }
+    }
+    
+    if ([service isEqual:_bluetoothService]){
         bluetoothCharacteristic = [[service.characteristics filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.UUID.UUIDString == %@",BluetoothDataCharacteristics_UUID]] firstObject];
     }
 }

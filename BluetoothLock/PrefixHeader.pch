@@ -62,11 +62,17 @@
  
  */
 
-#define SerialDataService_UUID @"FFE0"
-#define SerialDataCharacteristics_UUID @"FFE4"
+//#define SerialDataService_UUID @"FFE0"
+//#define SerialDataCharacteristics_UUID @"FFE4"
+//
+//#define BluetoothDataService_UUID @"FFE5"
+//#define BluetoothDataCharacteristics_UUID @"FFE9"
 
-#define BluetoothDataService_UUID @"FFE5"
-#define BluetoothDataCharacteristics_UUID @"FFE9"
+#define SerialDataService_UUID @"FFF0"
+#define SerialDataCharacteristics_UUID @"FFF7"
+
+#define BluetoothDataService_UUID @"FFF0"
+#define BluetoothDataCharacteristics_UUID @"FFF6"
 
 #define Main_SB_VC(identifier) [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:identifier]
 
