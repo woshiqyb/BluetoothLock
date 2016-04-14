@@ -7,7 +7,7 @@
 //
 #import "PeripheralsVC.h"
 #import "BluetoothDataVC.h"
-#include "crc.h"
+#import "BluetoothDataFactory.h"
 
 /**
  *  当前操作指令类型
@@ -94,85 +94,7 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
 }
 
 #pragma mark - Initialization
-- (NSData *)readingPeripheralData{
-    unsigned int deviceID = (unsigned int)[deviceIDHexString intValue];
-    
-    Byte byte[11];
-    byte[0] = 0x7F;
-    byte[1] = 0x7F;
-    byte[2] = 0x00;
-    byte[3] = ((deviceID&0xffff)>>8)&0xff;
-    byte[4] = deviceID&0xff;
-    byte[5] = 0x01;
-    byte[6] = 0x00;
-    
-    unsigned char * crcHexChar = byte;
-    unsigned int crc = byte_crc(crcHexChar, 7);
-    byte[7] = ((crc&0xff00)>>8)&0xff;
-    byte[8] = crc&0xff;
-    byte[9] = 0x0d;
-    byte[10] = 0x0a;
-    
-    return [NSMutableData dataWithBytes:byte length:11];
-}
 
-- (NSData *)closingData{
-    unsigned int deviceID = (unsigned int)[deviceIDHexString intValue];
-    
-    Byte byte[11];
-    byte[0] = 0x7F;
-    byte[1] = 0x7F;
-    byte[2] = 0x00;
-    byte[3] = ((deviceID&0xffff)>>8)&0xff;
-    byte[4] = deviceID&0xff;
-    byte[5] = 0x01;
-    byte[6] = 0x00;
-    
-    unsigned char * crcHexChar = byte;
-    unsigned int crc = byte_crc(crcHexChar, 7);
-    byte[7] = ((crc&0xff00)>>8)&0xff;
-    byte[8] = crc&0xff;
-    byte[9] = 0x0d;
-    byte[10] = 0x0a;
-
-    return [NSMutableData dataWithBytes:byte length:11];
-}
-
-- (NSData*)hexToBytes:(NSString *)hexString{
-    NSMutableData* data = [NSMutableData data];
-    int idx;
-    for (idx = 0; idx+2 <= hexString.length; idx+=2) {
-        NSRange range = NSMakeRange(idx, 2);
-        NSString* hexStr = [hexString substringWithRange:range];
-        NSScanner* scanner = [NSScanner scannerWithString:hexStr];
-        unsigned int intValue;
-        [scanner scanHexInt:&intValue];
-        [data appendBytes:&intValue length:1];
-    }
-    return data;
-}
-
-- (NSData *)openningData{
-    unsigned int deviceID = (unsigned int)[deviceIDHexString intValue];
-    
-    Byte byte[11];
-    byte[0] = 0x7F;
-    byte[1] = 0x7F;
-    byte[2] = 0x00;
-    byte[3] = ((deviceID&0xffff)>>8)&0xff;
-    byte[4] = deviceID&0xff;
-    byte[5] = 0x02;
-    byte[6] = 0x00;
-    
-    unsigned char * crcHexChar = byte;
-    unsigned int crc = byte_crc(crcHexChar, 7);
-    byte[7] = ((crc&0xff00)>>8)&0xff;
-    byte[8] = crc&0xff;
-    byte[9] = 0x0d;
-    byte[10] = 0x0a;
-    
-    return [NSMutableData dataWithBytes:byte length:11];
-}
 
 - (void)lockStateOpened{
     _lockStateImageView.image = [UIImage imageNamed:@"openState.jpeg"];
@@ -189,7 +111,7 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     if (bluetoothCharacteristic) {
         operationType = BluetoothOperationTypeOpen;
         showManualHideHud(@"开锁中请等待...", MBProgressHUDModeIndeterminate);
-        [_peripheral writeValue:[self openningData] forCharacteristic:bluetoothCharacteristic type:CBCharacteristicWriteWithResponse];
+        [_peripheral writeValue:[BluetoothDataFactory openningDataWithDeviceId:deviceIDHexString] forCharacteristic:bluetoothCharacteristic type:CBCharacteristicWriteWithResponse];
     }
 }
 
@@ -197,7 +119,7 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     if (bluetoothCharacteristic) {
         operationType = BluetoothOperationTypeClose;
         showManualHideHud(@"关锁中请等待...", MBProgressHUDModeIndeterminate);
-        [_peripheral writeValue:[self closingData] forCharacteristic:bluetoothCharacteristic type:CBCharacteristicWriteWithResponse];
+        [_peripheral writeValue:[BluetoothDataFactory closingDataWithDeviceId:deviceIDHexString] forCharacteristic:bluetoothCharacteristic type:CBCharacteristicWriteWithResponse];
     }
 }
 
@@ -251,55 +173,24 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
         
         Byte deviceState = byteAll[4];
         
-//        NSString *hintText;
-//        
-//        UIColor *color;
-        
         hideManualHud(0);
         if (deviceState == 0x01) {//成功
             showSuccessHud(@"操作成功");
             if (operationType != BluetoothOperationTypeNone) {
                 if (operationType == BluetoothOperationTypeClose) {
-//                    hintText = @"打开成功";
                     [self lockStateClosed];
                 }else{
-//                    hintText = @"关闭成功";
                     [self lockStateOpened];
                 }
-                
-//                color = [UIColor greenColor];
             }
             
         }else if (deviceState == 0x02){//失败
             showSuccessHud(@"操作失败");
-//            if (operationType != BluetoothOperationTypeNone) {
-//                if (operationType == BluetoothOperationTypeClose) {
-//                    hintText = @"打开失败";
-//                }else{
-//                    hintText = @"关闭失败";
-//                }
-//                
-//                color = [UIColor redColor];
-//            }
-           
         }else if (deviceState == 0x05){//地锁打开状态
             [self lockStateOpened];
         }else if (deviceState == 0x06){//地锁关闭状态
             [self lockStateClosed];
         }
-        
-//        if (color) {
-//            NSMutableAttributedString *atttributedString = [[NSMutableAttributedString alloc] initWithString:[OperationStatePrefix stringByAppendingString:dataString]];
-//            [atttributedString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(OperationStatePrefix.length, dataString.length)];
-//            _operationStateLabel.attributedText = atttributedString;
-//        }
-        
-//        if (hintText.length > 0) {
-//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"操作提示" message:hintText delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-//            [alertView show];
-//            hideManualHud(0);
-//            showSuccessHud(@"操作成功");
-//        }
     }
 }
 
