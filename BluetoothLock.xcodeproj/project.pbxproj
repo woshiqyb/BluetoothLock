@@ -42,6 +42,7 @@
 		173CDA801C0AD00700CC6E15 /* BluetoothLockUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDA7F1C0AD00700CC6E15 /* BluetoothLockUITests.m */; };
 		173CDA9E1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDA9D1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m */; };
 		173CDAE71C0B0BBE00CC6E15 /* BluetoothDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CDAE61C0B0BBE00CC6E15 /* BluetoothDataVC.m */; };
+		17A499D81CC52A57000E89C0 /* MathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A499D71CC52A57000E89C0 /* MathUtil.m */; };
 		17BDD7551C54DE0000E50225 /* openState.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 17BDD7531C54DE0000E50225 /* openState.jpeg */; };
 		17BDD7561C54DE0000E50225 /* closeState.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 17BDD7541C54DE0000E50225 /* closeState.jpeg */; };
 		17E5A3541CBFE23B000C7008 /* BluetoothDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E5A3531CBFE23B000C7008 /* BluetoothDataFactory.m */; };
@@ -137,6 +138,8 @@
 		173CDA9D1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBPeripheral+RSSI.m"; sourceTree = "<group>"; };
 		173CDAE51C0B0BBE00CC6E15 /* BluetoothDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothDataVC.h; sourceTree = "<group>"; };
 		173CDAE61C0B0BBE00CC6E15 /* BluetoothDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothDataVC.m; sourceTree = "<group>"; };
+		17A499D61CC52A57000E89C0 /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
+		17A499D71CC52A57000E89C0 /* MathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtil.m; sourceTree = "<group>"; };
 		17BDD7531C54DE0000E50225 /* openState.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = openState.jpeg; sourceTree = "<group>"; };
 		17BDD7541C54DE0000E50225 /* closeState.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = closeState.jpeg; sourceTree = "<group>"; };
 		17E5A3521CBFE23B000C7008 /* BluetoothDataFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothDataFactory.h; sourceTree = "<group>"; };
@@ -307,6 +310,8 @@
 				173CDA8E1C0AD1AF00CC6E15 /* PeripheralsVC.m */,
 				173CDAE51C0B0BBE00CC6E15 /* BluetoothDataVC.h */,
 				173CDAE61C0B0BBE00CC6E15 /* BluetoothDataVC.m */,
+				17A499D61CC52A57000E89C0 /* MathUtil.h */,
+				17A499D71CC52A57000E89C0 /* MathUtil.m */,
 				17E5A3521CBFE23B000C7008 /* BluetoothDataFactory.h */,
 				17E5A3531CBFE23B000C7008 /* BluetoothDataFactory.m */,
 				173CDA631C0AD00700CC6E15 /* Main.storyboard */,
@@ -420,6 +425,7 @@
 				TargetAttributes = {
 					173CDA561C0AD00700CC6E15 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 39ZW8XTHCB;
 					};
 					173CDA6F1C0AD00700CC6E15 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -502,6 +508,7 @@
 				173CDA9E1C0AEA8D00CC6E15 /* CBPeripheral+RSSI.m in Sources */,
 				14EF12CB1C0BE59B0039BDDA /* MJRefreshAutoNormalFooter.m in Sources */,
 				14EF12C71C0BE59B0039BDDA /* MJRefreshComponent.m in Sources */,
+				17A499D81CC52A57000E89C0 /* MathUtil.m in Sources */,
 				173CDAE71C0B0BBE00CC6E15 /* BluetoothDataVC.m in Sources */,
 				14EF12831C0BE4470039BDDA /* MBProgressHUD.m in Sources */,
 				14EF12D71C0BE59B0039BDDA /* UIView+MJExtension.m in Sources */,
@@ -655,7 +662,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Venus Innovator Information Tech.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venus Innovator Information Tech.";
 				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;
@@ -674,7 +681,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Venus Innovator Information Tech.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venus Innovator Information Tech.";
 				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;

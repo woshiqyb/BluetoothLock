@@ -31,11 +31,13 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
 
 @interface BluetoothDataVC ()<CBPeripheralDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *operationStateLabel;
-@property (weak, nonatomic) IBOutlet UIButton *openButton;
-@property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UIButton *openButton2;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton2;
 @property (weak, nonatomic) IBOutlet UIImageView *lockStateImageView;
+@property (weak, nonatomic) IBOutlet UILabel *dumpEnergyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *parkingStateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lockStateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *systemStateLabel;
 
 @end
 
@@ -166,29 +168,28 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     if (!error) {
         NSData *data = characteristic.value;
         
-        NSString *dataString = [NSString stringWithFormat:@"%@",data];
-        _operationStateLabel.text = dataString;
+        hideManualHud(0);
         
         Byte *byteAll = (Byte *)[data bytes];
+        //设备锁状态
+        Byte deviceState = byteAll[5];
+        //界面上的系统状态
+        Byte systemState = byteAll[6];
         
-        Byte deviceState = byteAll[4];
+        _operationStateLabel.text = [NSString stringWithFormat:@"操作状态：%@",data];
         
-        hideManualHud(0);
-        if (deviceState == 0x01) {//成功
-            showSuccessHud(@"操作成功");
-            if (operationType != BluetoothOperationTypeNone) {
-                if (operationType == BluetoothOperationTypeClose) {
-                    [self lockStateClosed];
-                }else{
-                    [self lockStateOpened];
-                }
-            }
-            
-        }else if (deviceState == 0x02){//失败
-            showSuccessHud(@"操作失败");
-        }else if (deviceState == 0x05){//地锁打开状态
+        //设备锁状态是按位获取状态码
+        NSDictionary *deviceInfoDict = [BluetoothDataFactory deviceStateInfoWithDeviceStateCode:deviceState];
+        _dumpEnergyLabel.text = [NSString stringWithFormat:@"电量：%@",deviceInfoDict[kDumpEnergyInfoKey]];
+        NSString *lockState = deviceInfoDict[kLockStateInfoKey];
+        _lockStateLabel.text = [NSString stringWithFormat:@"锁状态：%@  %@",lockState,deviceInfoDict[kSystemLockStateInfoKey]];
+        _parkingStateLabel.text = [NSString stringWithFormat:@"车位：%@",deviceInfoDict[kParkingStateInfoKey]];
+        //系统状态是一个完成的字节
+        _systemStateLabel.text = [NSString stringWithFormat:@"系统状态：%@",[BluetoothDataFactory systemStateInfoWithSystemStateCode:systemState]?:@"未知"];
+        
+        if ([lockState rangeOfString:@"开"].location != NSNotFound){//地锁打开状态
             [self lockStateOpened];
-        }else if (deviceState == 0x06){//地锁关闭状态
+        }else if ([lockState rangeOfString:@"关"].location != NSNotFound){//地锁关闭状态
             [self lockStateClosed];
         }
     }
