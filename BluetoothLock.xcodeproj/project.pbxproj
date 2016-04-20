@@ -662,17 +662,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venus Innovator Information Tech.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiao Dong Yang (UR6F5JBML6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiao Dong Yang (UR6F5JBML6)";
 				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREFIX_HEADER = BluetoothLock/PrefixHeader.pch;
 				INFOPLIST_FILE = BluetoothLock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "STalliance.TI-BLE-Demo-qyb";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vic.ios.develop.bluetooth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1258abc-b1ae-405b-bba6-1bf9a7e6875f";
+				PROVISIONING_PROFILE = "d34f16eb-884f-41d0-8e12-02b9fcc027f0";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -681,17 +681,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Venus Innovator Information Tech.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xiao Dong Yang (UR6F5JBML6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiao Dong Yang (UR6F5JBML6)";
 				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PREFIX_HEADER = BluetoothLock/PrefixHeader.pch;
 				INFOPLIST_FILE = BluetoothLock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "STalliance.TI-BLE-Demo-qyb";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vic.ios.develop.bluetooth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1258abc-b1ae-405b-bba6-1bf9a7e6875f";
+				PROVISIONING_PROFILE = "d34f16eb-884f-41d0-8e12-02b9fcc027f0";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

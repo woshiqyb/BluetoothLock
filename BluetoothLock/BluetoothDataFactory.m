@@ -17,6 +17,10 @@ NSString * const kSystemLockStateInfoKey = @"com.qyb.kSystemLockStateInfoKey";
 
 @implementation BluetoothDataFactory
 
++ (NSData *)queryDataWithDeviceId:(NSString *)deviceIDHexString {
+    return [self dataWithDeviceId:deviceIDHexString operationCode:0x00 byte2Code:0x60];
+}
+
 + (NSData *)closingDataWithDeviceId:(NSString *)deviceIDHexString {
 
     return [self dataWithDeviceId:deviceIDHexString operationCode:0x01];
@@ -28,12 +32,16 @@ NSString * const kSystemLockStateInfoKey = @"com.qyb.kSystemLockStateInfoKey";
 }
 
 + (NSData *)dataWithDeviceId:(NSString *)deviceIDHexString operationCode:(unsigned int)operationCode {
-    unsigned int deviceID = (unsigned int)[deviceIDHexString intValue];
     
+    return [self dataWithDeviceId:deviceIDHexString operationCode:operationCode byte2Code:0x00];
+}
+
++ (NSData *)dataWithDeviceId:(NSString *)deviceIDHexString operationCode:(unsigned int)operationCode byte2Code:(unsigned int)byte2 {
+    unsigned int deviceID = (unsigned int)[deviceIDHexString intValue];
     Byte byte[11];
     byte[0] = 0x7F;
     byte[1] = 0x7F;
-    byte[2] = 0x00;
+    byte[2] = byte2;
     byte[3] = ((deviceID&0xffff)>>8)&0xff;
     byte[4] = deviceID&0xff;
     byte[5] = operationCode&0xff;
@@ -129,11 +137,11 @@ NSString * const kSystemLockStateInfoKey = @"com.qyb.kSystemLockStateInfoKey";
             break;
         case 0x53:
         case 0x93:
-            stateInfo = @"BLE请求开锁";
+            stateInfo = @"BLE请求关锁";
             break;
         case 0x54:
         case 0x94:
-            stateInfo = @"BLE请求开锁(高级用户)";
+            stateInfo = @"BLE请求关锁(高级用户)";
             break;
         case 0x55:
         case 0x95:
@@ -311,7 +319,7 @@ NSString * const kSystemLockStateInfoKey = @"com.qyb.kSystemLockStateInfoKey";
         dumpEnergyInfo = @"90%";
     }
     
-    if (i3 == 1) {
+    if (i3 == 0) {
         lockStateInfo = @"地锁开";
     }else {
         lockStateInfo = @"地锁关";

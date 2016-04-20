@@ -27,7 +27,17 @@ extern NSString * const kSystemLockStateInfoKey;
 
 @interface BluetoothDataFactory : NSObject
 
+/**
+ *  查询数据报文
+ */
++ (NSData *)queryDataWithDeviceId:(NSString *)deviceIDHexString;
+/**
+ *  关锁数据报文
+ */
 + (NSData *)closingDataWithDeviceId:(NSString *)deviceIDHexString;
+/**
+ *  开锁数据报文
+ */
 + (NSData *)openningDataWithDeviceId:(NSString *)deviceIDHexString;
 
 /**

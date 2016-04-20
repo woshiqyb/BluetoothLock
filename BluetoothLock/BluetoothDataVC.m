@@ -9,24 +9,6 @@
 #import "BluetoothDataVC.h"
 #import "BluetoothDataFactory.h"
 
-/**
- *  当前操作指令类型
- */
-typedef NS_ENUM(NSInteger,BluetoothOperationType) {
-    /**
-     *  未操作
-     */
-    BluetoothOperationTypeNone = 0,
-    /**
-     *  打开设备
-     */
-    BluetoothOperationTypeOpen = 1,
-    /**
-     *  关闭设备
-     */
-    BluetoothOperationTypeClose = 2,
-};
-
 #define OperationStatePrefix @"操作状态："
 
 @interface BluetoothDataVC ()<CBPeripheralDelegate,UITextFieldDelegate>
@@ -45,9 +27,9 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     CBCharacteristic *bluetoothCharacteristic;
     CBCharacteristic *serialCharacteristic;
     
-    BluetoothOperationType operationType;
-    
     NSString *deviceIDHexString;
+    
+    NSTimer *timer;
 }
 
 - (void)viewDidLoad {
@@ -74,6 +56,10 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     [_closeButton2 layoutIfNeeded];
     _closeButton2.layer.cornerRadius = CGRectGetHeight(_closeButton2.bounds)/2;
     _closeButton2.layer.masksToBounds = YES;
+    
+    timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(sendQueryData) userInfo:nil repeats:YES];
+    [timer setFireDate:[NSDate distantFuture]];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -83,6 +69,9 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    
+    [self stopTimer];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:QYBCentralManagerDidDisconnectPeripheralNotification object:nil];
 }
 
@@ -93,6 +82,11 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
 
 - (void)dealloc{
     
+}
+
+- (void)stopTimer {
+    [timer invalidate];
+    timer = nil;
 }
 
 #pragma mark - Initialization
@@ -111,7 +105,6 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     [self.view endEditing:YES];
     
     if (bluetoothCharacteristic) {
-        operationType = BluetoothOperationTypeOpen;
         showManualHideHud(@"开锁中请等待...", MBProgressHUDModeIndeterminate);
         [_peripheral writeValue:[BluetoothDataFactory openningDataWithDeviceId:deviceIDHexString] forCharacteristic:bluetoothCharacteristic type:CBCharacteristicWriteWithResponse];
     }
@@ -119,9 +112,15 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
 
 - (IBAction)closeThePeripheral {
     if (bluetoothCharacteristic) {
-        operationType = BluetoothOperationTypeClose;
         showManualHideHud(@"关锁中请等待...", MBProgressHUDModeIndeterminate);
         [_peripheral writeValue:[BluetoothDataFactory closingDataWithDeviceId:deviceIDHexString] forCharacteristic:bluetoothCharacteristic type:CBCharacteristicWriteWithResponse];
+    }
+}
+
+#pragma mark - Timer Action
+- (void)sendQueryData {
+    if (bluetoothCharacteristic) {
+        [_peripheral writeValue:[BluetoothDataFactory queryDataWithDeviceId:deviceIDHexString] forCharacteristic:bluetoothCharacteristic type:CBCharacteristicWriteWithResponse];
     }
 }
 
@@ -152,6 +151,11 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
     if ([service isEqual:_bluetoothService]){
         bluetoothCharacteristic = [[service.characteristics filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.UUID.UUIDString == %@",BluetoothDataCharacteristics_UUID]] firstObject];
     }
+    
+    //蓝牙数据通道连接上以后，打开定时器开始写入状态查询数据
+    if (bluetoothCharacteristic) {
+        [timer setFireDate:[NSDate date]];
+    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
@@ -171,6 +175,9 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
         hideManualHud(0);
         
         Byte *byteAll = (Byte *)[data bytes];
+        //byte2的状态表示只有为0x60和0x22时才解析返回的状态数据，
+        //其他返回数据为异常数据，不做处理
+        Byte byte2 = byteAll[2];
         //设备锁状态
         Byte deviceState = byteAll[5];
         //界面上的系统状态
@@ -178,19 +185,28 @@ typedef NS_ENUM(NSInteger,BluetoothOperationType) {
         
         _operationStateLabel.text = [NSString stringWithFormat:@"操作状态：%@",data];
         
-        //设备锁状态是按位获取状态码
-        NSDictionary *deviceInfoDict = [BluetoothDataFactory deviceStateInfoWithDeviceStateCode:deviceState];
-        _dumpEnergyLabel.text = [NSString stringWithFormat:@"电量：%@",deviceInfoDict[kDumpEnergyInfoKey]];
-        NSString *lockState = deviceInfoDict[kLockStateInfoKey];
-        _lockStateLabel.text = [NSString stringWithFormat:@"锁状态：%@  %@",lockState,deviceInfoDict[kSystemLockStateInfoKey]];
-        _parkingStateLabel.text = [NSString stringWithFormat:@"车位：%@",deviceInfoDict[kParkingStateInfoKey]];
-        //系统状态是一个完成的字节
-        _systemStateLabel.text = [NSString stringWithFormat:@"系统状态：%@",[BluetoothDataFactory systemStateInfoWithSystemStateCode:systemState]?:@"未知"];
-        
-        if ([lockState rangeOfString:@"开"].location != NSNotFound){//地锁打开状态
-            [self lockStateOpened];
-        }else if ([lockState rangeOfString:@"关"].location != NSNotFound){//地锁关闭状态
-            [self lockStateClosed];
+        if (byte2 == 0x22 || byte2 == 0x60) {
+            //设备锁状态是按位获取状态码
+            NSDictionary *deviceInfoDict = [BluetoothDataFactory deviceStateInfoWithDeviceStateCode:deviceState];
+            _dumpEnergyLabel.text = [NSString stringWithFormat:@"电量：%@",deviceInfoDict[kDumpEnergyInfoKey]];
+            NSString *lockState = deviceInfoDict[kLockStateInfoKey];
+            _lockStateLabel.text = [NSString stringWithFormat:@"锁状态：%@  %@",lockState,deviceInfoDict[kSystemLockStateInfoKey]];
+            _parkingStateLabel.text = [NSString stringWithFormat:@"车位：%@",deviceInfoDict[kParkingStateInfoKey]];
+            //系统状态是一个完成的字节
+            _systemStateLabel.text = [NSString stringWithFormat:@"系统状态：%@",[BluetoothDataFactory systemStateInfoWithSystemStateCode:systemState]?:@"未知"];
+            
+            //0x60状态只用显示锁的状态，不需要提示用户
+            if ([lockState rangeOfString:@"开"].location != NSNotFound){//地锁打开状态
+                [self lockStateOpened];
+                if (byte2 == 0x22) {
+                    showSuccessHud(@"开锁成功");
+                }
+            }else if ([lockState rangeOfString:@"关"].location != NSNotFound){//地锁关闭状态
+                [self lockStateClosed];
+                if (byte2 == 0x22) {
+                    showSuccessHud(@"关锁成功");
+                }
+            }
         }
     }
 }
