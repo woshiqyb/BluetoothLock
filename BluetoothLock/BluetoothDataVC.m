@@ -29,7 +29,7 @@
     
     NSString *deviceIDHexString;
     
-    NSTimer *timer;
+//    NSTimer *timer;
 }
 
 - (void)viewDidLoad {
@@ -57,9 +57,9 @@
     _closeButton2.layer.cornerRadius = CGRectGetHeight(_closeButton2.bounds)/2;
     _closeButton2.layer.masksToBounds = YES;
     
-    timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(sendQueryData) userInfo:nil repeats:YES];
-    [timer setFireDate:[NSDate distantFuture]];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+//    timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(sendQueryData) userInfo:nil repeats:YES];
+//    [timer setFireDate:[NSDate distantFuture]];
+//    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -70,7 +70,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    [self stopTimer];
+//    [self stopTimer];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:QYBCentralManagerDidDisconnectPeripheralNotification object:nil];
 }
@@ -84,10 +84,10 @@
     
 }
 
-- (void)stopTimer {
-    [timer invalidate];
-    timer = nil;
-}
+//- (void)stopTimer {
+//    [timer invalidate];
+//    timer = nil;
+//}
 
 #pragma mark - Initialization
 
@@ -154,7 +154,8 @@
     
     //蓝牙数据通道连接上以后，打开定时器开始写入状态查询数据
     if (bluetoothCharacteristic) {
-        [timer setFireDate:[NSDate date]];
+//        [timer setFireDate:[NSDate date]];
+        [self sendQueryData];
     }
 }
 
